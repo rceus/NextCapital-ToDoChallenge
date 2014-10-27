@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+  <title>To Do List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/webfontkits.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="modules/directives/sortable/src/sortable.js"></script>
+</head>
+<body ng-controller="todoController">
+  <div class="jumbotron header">
+    <h1 class="title">Assignment List</h1>
+    <form id="addEntry">
+      <input type="text" class="add" ng-model="addText" action="#">
+      <input id="addBtn" type="submit" value="Add" ng-click="saveItem()">
+    </form>
+  </div>
+  <div class="list">
+    <div id="todo">
+      <i class="fa fa-fw fa-1x fa-sort-amount-asc" ng-click="sortItems()"></i>
+      <ul class="list-group" ng-model="items"> <!-- ui-sortable="sortableOptions"  -->
+        <li ng-repeat="item in items" class="list-group-item {{ item.status }}">
+          <i class="{{ pickIcon() }}" ng-click="setCompletion()"></i>
+          <i class="fa fa-fw fa-edit {{ item.editMode }}" ng-click="editItem()"></i>
+          <span ng-hide="item.editMode" class="name">{{ item.name }}</span>
+          <input type="text" class="itemTextbox" ng-show="item.editMode" value="{{ item.name }}" ng-model="item.name">
+          <i class="fa fa-fw fa-eraser" ng-click="removeItem()"></i
+        </li>
+        <li ng-show="addText" class="list-group-item">
+          <span style="margin-left: 30px" class="name {{ item.editMode }}">{{ addText }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script 
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
