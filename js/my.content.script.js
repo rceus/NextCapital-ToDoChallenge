@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+	Load Angular and UI Sortable Module
+*/
+
 var myAppModule = angular.module('main', ['ui.sortable'])
 
 function TodoCtrl($scope)
@@ -154,6 +158,10 @@ function TodoCtrl($scope)
 
 		}); 
 	}
+
+	/*
+		Clearing the Screen: Client Side Command
+	*/
 
 	$scope.clearTodos = function(){
 		Todo.USER = $scope.currUser;
